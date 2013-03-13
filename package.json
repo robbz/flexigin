@@ -1,0 +1,23 @@
+{
+  "name": "flexigin",
+  "version": "0.0.1",
+  "description": "flexigin is a flexible framework for building apps with knockout.",
+  "author": "Roberto Bez (http://www.devangelist.de)",
+  "main": "bin/flexigin.min.js",
+  "dependencies": {
+    "flexigin-node": "0.0.1"
+  },
+  "devDependencies": {
+    "connect": "2.7.3",
+    "grunt": "0.4.0",
+    "grunt-contrib-watch": "0.2.0",
+    "grunt-contrib-uglify": "0.1.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/robbz/flexigin.git"
+  }
+}
