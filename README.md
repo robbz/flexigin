@@ -5,7 +5,7 @@ flexigin is a flexible framework for building simple, fast and powerful apps bas
 As many libs are only client-side, flexigin comes with an implementation for several servers, which is one key point of the concept.
 
 - nodejs implementation - [flexigin-node](https://github.com/goloroden/flexigin-node)
-- .NET implementation - [flexigin-net](https://github.com/robbz/flexigin-node)
+- .NET implementation - [flexigin-net](https://github.com/robbz/flexigin-net)
 
 ## What is flexigin?
 
