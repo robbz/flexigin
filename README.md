@@ -1,10 +1,10 @@
 # flexigin
 
-flexigin is a flexible framework for building simple, fast and powerful apps based on top of knockout.
+flexigin is a flexible framework for building simple, fast and powerful apps based on top of [Knockout](http://knockout.com).
 
-As many libs are only client-side, flexigin comes with an implementation for several servers, which is one key point of the concept.
+In contrast to many other libraries which are client-side only, flexigin also has a server part.
 
-- nodejs implementation - [flexigin-node](https://github.com/goloroden/flexigin-node)
+- Node.js implementation - [flexigin-node](https://github.com/goloroden/flexigin-node)
 - .NET implementation - [flexigin-net](https://github.com/robbz/flexigin-net)
 
 ## What is flexigin?
@@ -27,14 +27,14 @@ Flexigin expect them to be in a basePath like `/components` and to have the subf
 
 When the client would like to get access to this components, it simple loads the files needed and automatically bind the model to the view.
 The server should be at least able to provide one specified component or all components togheter.
-It doesn't mather how many .js, .css or .html files there are, the result is returned **concatenated** and **minified**.
+It doesn't matter how many .js, .css or .html files there are, the result is returned **concatenated** and **minified**.
 
 #### Examples
 
     /components/user/js      => all js files located in the /user folder, concatenated and minified.
     /components/profile/html => all html files located in the /user/profile folder, concatenated and minified.
-    /components/css          => all css files located in the basePath /components (including all subfolders), concatenated and minified.
-    /components/             => if no type is specified, a requests for each type ill be created.
+    /components/css          => all css files located in the basePath /components (including all subfolders).
+    /components/             => if no type is specified, a requests for each type will be created.
 
 ## Quick start
 
@@ -63,7 +63,7 @@ Changing the route:
 The route has two placeholders, {component} and {type}.
 
     fx.set('route', '/flexigin/?p={component}/{type}/'); // .NET route
-    fx.set('route', '/basePath/{component}/{type}/'); // nodejs route
+    fx.set('route', '/basePath/{component}/{type}/'); // Node.js route
 
 ## Partial views
 
@@ -84,8 +84,6 @@ But if your app is going to get bigger from time to time, than it's better to us
 Flexigin has been developed using TDD. To run the tests, you need to start the sample node app (app.js) and open the following url in your browser:
 
     http://localhost:3000/runner.html
-
-You need to have [mocha](https://github.com/visionmedia/mocha) installed.
 
 ## License
 
