@@ -26,6 +26,21 @@ module.exports = function (grunt) {
       }
     },
 
+    concat: {
+      options: {
+        banner: '/*!\n' +
+                ' * <%= pkg.name %> - v<%= pkg.version %>\n' +
+                ' * (c) <%= pkg.author %>\n' +
+                ' * License: MIT (http://www.opensource.org/licenses/mit-license.php)\n' +
+                ' * <%= grunt.template.today("yyyy-mm-dd") %> \n' +
+                ' */\n'
+      },
+      dist: {
+        src: ['lib/flexigin.js', 'lib/load.js', 'lib/resolve.js'],
+        dest: 'bin/flexigin-<%= pkg.version %>.js'
+      }
+    },
+
     watch: {
       options: {
         files: [ 'lib/*.js', '!node_modules/**/*.js' ],
@@ -37,6 +52,7 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerTask('default', [ 'uglify' ]);
+  grunt.registerTask('default', [ 'uglify', 'concat' ]);
 };
