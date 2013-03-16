@@ -1,6 +1,16 @@
 'use strict';
 
 module.exports = function (grunt) {
+
+  var banner = '/*!\n' +
+                ' * <%= pkg.name %> - v<%= pkg.version %>\n' +
+                ' * (c) <%= pkg.author %>\n' +
+                ' * License: MIT (http://www.opensource.org/licenses/mit-license.php)\n' +
+                ' * <%= grunt.template.today("yyyy-mm-dd") %> \n' +
+                ' */\n';
+
+  var jsFiles = ['lib/flexigin.js', 'lib/load.js', 'lib/resolve.js']
+
   grunt.initConfig({
     jshint: {
       files: [ '**/*.js', '!node_modules/**/*.js', '!public/**/*.js' ],
@@ -12,31 +22,21 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
-        banner: '/*!\n' +
-                ' * <%= pkg.name %> - v<%= pkg.version %>\n' +
-                ' * (c) <%= pkg.author %>\n' +
-                ' * License: MIT (http://www.opensource.org/licenses/mit-license.php)\n' +
-                ' * <%= grunt.template.today("yyyy-mm-dd") %> \n' +
-                ' */\n'
+        banner: banner
       },
       my_target: {
         files: {
-          'bin/flexigin-<%= pkg.version %>.min.js': ['lib/flexigin.js', 'lib/load.js', 'lib/resolve.js']
+          'bin/flexigin-<%= pkg.version %>.min.js': jsFiles
         }
       }
     },
 
     concat: {
       options: {
-        banner: '/*!\n' +
-                ' * <%= pkg.name %> - v<%= pkg.version %>\n' +
-                ' * (c) <%= pkg.author %>\n' +
-                ' * License: MIT (http://www.opensource.org/licenses/mit-license.php)\n' +
-                ' * <%= grunt.template.today("yyyy-mm-dd") %> \n' +
-                ' */\n'
+        banner: banner
       },
       dist: {
-        src: ['lib/flexigin.js', 'lib/load.js', 'lib/resolve.js'],
+        src: jsFiles,
         dest: 'bin/flexigin-<%= pkg.version %>.js'
       }
     },
